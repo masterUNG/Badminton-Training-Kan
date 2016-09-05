@@ -78,7 +78,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     LatLng latLng = new LatLng(Double.parseDouble(strLat),
                             Double.parseDouble(strLng));
                     courtGoogleMap.addMarker(new MarkerOptions()
-                    .position(latLng));
+                    .position(latLng)
+                    .title(strName)
+                    .snippet(strPhone));
                 }//for
             } catch (Exception e) {
                 e.printStackTrace();

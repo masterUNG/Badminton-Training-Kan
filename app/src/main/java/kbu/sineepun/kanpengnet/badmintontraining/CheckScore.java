@@ -2,6 +2,7 @@ package kbu.sineepun.kanpengnet.badmintontraining;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -203,13 +204,7 @@ public class CheckScore extends AppCompatActivity {
                 Integer.toString(intScoreWin) +
                 " : " +
                 Integer.toString(intScoreLost));
-        builder.setNegativeButton("Save", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        });
-        builder.setNeutralButton("Again", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("Again", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 resetAll();
@@ -217,9 +212,11 @@ public class CheckScore extends AppCompatActivity {
             }
         });
 
+
         builder.setPositiveButton("Exit", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                startActivity(new Intent(CheckScore.this, MainHub.class));
                 finish();
             }
         });
