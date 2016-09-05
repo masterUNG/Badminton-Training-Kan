@@ -3,7 +3,9 @@ package kbu.sineepun.kanpengnet.badmintontraining;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.ArrayAdapter;
 import android.widget.MediaController;
+import android.widget.Spinner;
 import android.widget.VideoView;
 
 public class SubTest extends AppCompatActivity {
@@ -14,6 +16,9 @@ public class SubTest extends AppCompatActivity {
     private String[] subVideo = myConstance.getVideoStrings();
     private String pathVideo = "android.resource://kbu.sineepun.kanpengnet.badmintontraining/raw/";
     private VideoView videoView;
+    private String[] pointStrings = myConstance.getPointStrings();
+    private Spinner spinner;
+    private ArrayAdapter<String> stringArrayAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +27,7 @@ public class SubTest extends AppCompatActivity {
 
         //Bind Widget
         videoView = (VideoView) findViewById(R.id.videoView);
+        spinner = (Spinner) findViewById(R.id.spinner);
 
         indexAnInt = getIntent().getIntExtra("Index", 0);
         Log.d("5SepV3", "Index ==> " + indexAnInt);
@@ -36,6 +42,9 @@ public class SubTest extends AppCompatActivity {
         videoView.setMediaController(mediaController);
         videoView.start();
 
+        stringArrayAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, pointStrings);
+        spinner.setAdapter(stringArrayAdapter);
 
     }   // Main Method
 

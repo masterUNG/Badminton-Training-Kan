@@ -16,15 +16,29 @@
         android:id="@+id/button8"
         android:layout_alignParentBottom="true" />
 
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinner"
-        android:layout_above="@+id/button8" />
-
     <VideoView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/videoView"
-        android:layout_above="@+id/spinner" />
+        android:layout_alignParentTop="true" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/videoView">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Time ="
+            android:id="@+id/textView45"
+            android:textSize="@dimen/h2" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner"
+            android:layout_above="@+id/button8" />
+    </LinearLayout>
 </RelativeLayout>
