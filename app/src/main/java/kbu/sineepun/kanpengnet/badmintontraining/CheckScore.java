@@ -53,7 +53,23 @@ public class CheckScore extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                //Check Log
+                Log.d("5SepV2", "Last stringArrayList(" +
+                        (stringArrayList.size() - 1) + ") ==> " +
+                        stringArrayList.get(stringArrayList.size() - 1));
 
+                switch (Integer.parseInt(stringArrayList.get(stringArrayList.size()-1))) {
+                    case 0: // Decrease Score A
+                        scoreAnInt -= 2;
+                        changScore(scoreAtextView, 0);
+                        break;
+                    case 1: // Decrease Score B
+                        scoreBAnInt -= 2;
+                        changScore(scoreBtextView, 1);
+                        break;
+                }   // switch
+
+                stringArrayList.remove(stringArrayList.size() - 1);
 
             }   // onClick
         });
@@ -100,8 +116,15 @@ public class CheckScore extends AppCompatActivity {
     private void addMyArrayList(String strIndex) {
 
         stringArrayList.add(strIndex);
-
         Log.d("5SepV1", "Count of ArrayList ==> " + stringArrayList.size());
+
+        undoStrings = new String[stringArrayList.size()];
+        for (int i=0;i<stringArrayList.size();i++) {
+
+            undoStrings[i] = stringArrayList.get(i);
+            Log.d("5SepV1", "undoStrings(" + i + ") = " + undoStrings[i]);
+
+        }   //for
 
     }   // addMyArrayList
 
