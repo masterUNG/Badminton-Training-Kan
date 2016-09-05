@@ -5,6 +5,11 @@ package kbu.sineepun.kanpengnet.badmintontraining;
  */
 public class MyConstance {
 
+    //Explicit
+    private String[] videoStrings = new String[]{"save", "save", "save",
+            "save", "save",};
 
-
+    public String[] getVideoStrings() {
+        return videoStrings;
+    }
 }   // Main Class
