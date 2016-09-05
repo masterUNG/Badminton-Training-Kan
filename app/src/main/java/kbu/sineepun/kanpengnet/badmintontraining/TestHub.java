@@ -29,10 +29,10 @@ public class TestHub extends AppCompatActivity implements View.OnClickListener {
 
         //Image Controller
         hub1ImageView.setOnClickListener(this);
-        hub1ImageView.setOnClickListener(this);
-        hub1ImageView.setOnClickListener(this);
-        hub1ImageView.setOnClickListener(this);
-        hub1ImageView.setOnClickListener(this);
+        hub2ImageView.setOnClickListener(this);
+        hub3ImageView.setOnClickListener(this);
+        hub4ImageView.setOnClickListener(this);
+        hub5ImageView.setOnClickListener(this);
         graphImageView.setOnClickListener(this);
 
 
@@ -51,27 +51,29 @@ public class TestHub extends AppCompatActivity implements View.OnClickListener {
 
     private void myIntent(int intID) {
 
-        int intResult = 1;
+        int intResult = 0;
 
         switch (intID) {
             case R.id.imvHub1:
-                intResult = 1;
+                intResult = 0;
                 break;
             case R.id.imvHub2:
-                intResult = 2;
+                intResult = 1;
                 break;
             case R.id.imvHub3:
-                intResult = 3;
+                intResult = 2;
                 break;
             case R.id.imvHub4:
-                intResult = 4;
+                intResult = 3;
                 break;
             case R.id.imvHub5:
-                intResult = 5;
+                intResult = 4;
                 break;
         }
 
-        Intent intent = new Intent();
+        Intent intent = new Intent(TestHub.this, SubTest.class);
+        intent.putExtra("Index", intResult);
+        startActivity(intent);
 
     }   // myIntent
 

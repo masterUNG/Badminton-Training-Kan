@@ -62,7 +62,8 @@
             android:screenOrientation="portrait" />
         <activity android:name=".CheckScore2" />
         <activity android:name=".DeveloperActivity" />
-        <activity android:name=".TestHub"></activity>
+        <activity android:name=".TestHub" />
+        <activity android:name=".SubTest"></activity>
     </application>
 
 </manifest>
