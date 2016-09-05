@@ -48,12 +48,12 @@ public class MainHub extends AppCompatActivity implements View.OnClickListener {
                 break;
             case R.id.imageView4:// to นับคะแนน
                 confirmCountScore();
-
                 break;
             case R.id.imageView5:// to แสดงแผนที่สนาม
                 startActivity(new Intent(MainHub.this, MapsActivity.class));
                 break;
             case R.id.imageView6:
+                startActivity(new Intent(MainHub.this, TestHub.class));
                 break;
             case R.id.imageView7:
                 startActivity(new Intent(MainHub.this,DeveloperActivity.class));
