@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -53,23 +54,29 @@ public class CheckScore extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                //Check Log
-                Log.d("5SepV2", "Last stringArrayList(" +
-                        (stringArrayList.size() - 1) + ") ==> " +
-                        stringArrayList.get(stringArrayList.size() - 1));
+                if (stringArrayList.size() != 0) {
+                    //Check Log
+                    Log.d("5SepV2", "Last stringArrayList(" +
+                            (stringArrayList.size() - 1) + ") ==> " +
+                            stringArrayList.get(stringArrayList.size() - 1));
 
-                switch (Integer.parseInt(stringArrayList.get(stringArrayList.size()-1))) {
-                    case 0: // Decrease Score A
-                        scoreAnInt -= 2;
-                        changScore(scoreAtextView, 0);
-                        break;
-                    case 1: // Decrease Score B
-                        scoreBAnInt -= 2;
-                        changScore(scoreBtextView, 1);
-                        break;
-                }   // switch
+                    switch (Integer.parseInt(stringArrayList.get(stringArrayList.size() - 1))) {
+                        case 0: // Decrease Score A
+                            scoreAnInt -= 2;
+                            changScore(scoreAtextView, 0);
+                            break;
+                        case 1: // Decrease Score B
+                            scoreBAnInt -= 2;
+                            changScore(scoreBtextView, 1);
+                            break;
+                    }   // switch
 
-                stringArrayList.remove(stringArrayList.size() - 1);
+                    stringArrayList.remove(stringArrayList.size() - 1);
+                } else {
+                    Toast.makeText(CheckScore.this,
+                            "ไม่สามารถ Undo ได้คะ",
+                            Toast.LENGTH_SHORT).show();
+                }
 
             }   // onClick
         });
