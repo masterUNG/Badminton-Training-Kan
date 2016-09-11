@@ -14,7 +14,8 @@
         android:layout_height="wrap_content"
         android:text="Save"
         android:id="@+id/button8"
-        android:layout_alignParentBottom="true" />
+        android:layout_alignParentBottom="true"
+        android:onClick="clickSaveSubTest" />
 
     <VideoView
         android:layout_width="match_parent"

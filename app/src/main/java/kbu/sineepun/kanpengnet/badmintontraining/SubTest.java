@@ -3,6 +3,8 @@ package kbu.sineepun.kanpengnet.badmintontraining;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.MediaController;
 import android.widget.Spinner;
@@ -19,6 +21,7 @@ public class SubTest extends AppCompatActivity {
     private String[] pointStrings = myConstance.getPointStrings();
     private Spinner spinner;
     private ArrayAdapter<String> stringArrayAdapter;
+    private int spinnerAnInt = 20;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +49,33 @@ public class SubTest extends AppCompatActivity {
                 android.R.layout.simple_list_item_1, pointStrings);
         spinner.setAdapter(stringArrayAdapter);
 
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                spinnerAnInt = Integer.parseInt(pointStrings[i]);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                spinnerAnInt = 20;
+            }
+        });
+
     }   // Main Method
+
+    public void clickSaveSubTest(View view) {
+
+        Log.d("5SepV4", "index ==> " + indexAnInt);
+        Log.d("5SepV4", "Spinner ==> " + spinnerAnInt);
+
+        // myConstance.setupPointInt(indexAnInt, spinnerAnInt);
+
+        String[] columnStrings = new String[]{"Hub1", "Hub2", "Hub3", "Hub4", "Hub5"};
+        Log.d("11SepV1", "Column ==> " + columnStrings[indexAnInt]);
+        Log.d("11SepV1", "Value ==> " + spinnerAnInt);
+
+        finish();
+
+    }
 
 }   // Main Class

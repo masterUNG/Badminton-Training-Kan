@@ -63,7 +63,8 @@
         <activity android:name=".CheckScore2" />
         <activity android:name=".DeveloperActivity" />
         <activity android:name=".TestHub" />
-        <activity android:name=".SubTest"></activity>
+        <activity android:name=".SubTest" />
+        <activity android:name=".ShowGraph"></activity>
     </application>
 
 </manifest>

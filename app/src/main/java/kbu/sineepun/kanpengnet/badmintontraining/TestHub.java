@@ -3,6 +3,7 @@ package kbu.sineepun.kanpengnet.badmintontraining;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -13,6 +14,9 @@ public class TestHub extends AppCompatActivity implements View.OnClickListener {
     private ImageView hub1ImageView, hub2ImageView,
             hub3ImageView, hub4ImageView,
             hub5ImageView, graphImageView;
+    private MyConstance myConstance = new MyConstance();
+    private int[] pointInts;
+    private MyManage myManage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +39,8 @@ public class TestHub extends AppCompatActivity implements View.OnClickListener {
         hub5ImageView.setOnClickListener(this);
         graphImageView.setOnClickListener(this);
 
+        myManage = new MyManage(this);
+
 
     }   // Main Method
 
@@ -43,6 +49,12 @@ public class TestHub extends AppCompatActivity implements View.OnClickListener {
 
         if (view.getId() == R.id.imgGraph) {
             //Click Graph
+
+            pointInts = myConstance.getPointInts();
+            for (int i=0;i<pointInts.length;i++) {
+                Log.d("5SepV4", "Point(" + i + ") ==> " + pointInts[i]);
+            }
+
         } else {
             myIntent(view.getId());
         }
