@@ -1,5 +1,6 @@
 package kbu.sineepun.kanpengnet.badmintontraining;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -73,6 +74,18 @@ public class SubTest extends AppCompatActivity {
         String[] columnStrings = new String[]{"Hub1", "Hub2", "Hub3", "Hub4", "Hub5"};
         Log.d("11SepV1", "Column ==> " + columnStrings[indexAnInt]);
         Log.d("11SepV1", "Value ==> " + spinnerAnInt);
+
+        try {
+
+            SQLiteDatabase sqLiteDatabase = openOrCreateDatabase(MyOpenHelper.database_name,
+                    MODE_PRIVATE, null);
+            sqLiteDatabase.execSQL("UPDATE testTABLE SET " + "'" + columnStrings[indexAnInt] + "'" + " = " + "'" + Integer.toString(spinnerAnInt) + "'" + " WHERE _id = 1 " );
+           // sqLiteDatabase.execSQL("UPDATE testTABLE SET Hub1=30 WHERE _id=1");
+
+        } catch (Exception e) {
+            Log.d("11SepV1", "e ==> " + e.toString());
+        }
+
 
         finish();
 
