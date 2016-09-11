@@ -64,7 +64,7 @@
         <activity android:name=".DeveloperActivity" />
         <activity android:name=".TestHub" />
         <activity android:name=".SubTest" />
-        <activity android:name=".ShowGraph"></activity>
+        <activity android:name=".ShowGraph" android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>
